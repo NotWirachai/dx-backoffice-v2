@@ -31,8 +31,17 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "cities"
     },
-    "uuid": {
-      "type": "biginteger"
+    "state": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::state.state",
+      "inversedBy": "cities"
+    },
+    "armies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::army.army",
+      "mappedBy": "city"
     }
   }
 }

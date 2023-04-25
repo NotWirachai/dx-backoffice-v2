@@ -35,6 +35,12 @@
     },
     "armySpeedMetersPerMin": {
       "type": "float"
+    },
+    "city": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::city.city",
+      "inversedBy": "armies"
     }
   }
 }

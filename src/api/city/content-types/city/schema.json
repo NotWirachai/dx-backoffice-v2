@@ -31,17 +31,17 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "cities"
     },
-    "state": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::state.state",
-      "inversedBy": "cities"
-    },
     "armies": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::army.army",
       "mappedBy": "city"
+    },
+    "state": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::state.state",
+      "inversedBy": "cities"
     }
   }
 }

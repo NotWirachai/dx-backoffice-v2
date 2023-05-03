@@ -36,17 +36,17 @@ module.exports = {
         contentTypes: [
           // list of Content-Types UID to cache
           "api::city.city",
-          // {
-          //   contentType: "api::city.city",
-          //   maxAge: 3600000,
-          //   hitpass: false,
-          //   keys: {
-          //     useQueryParams: false,
-          //     useHeaders: ["accept-encoding"],
-          //   },
-          //   maxAge: 18000,
-          //   method: "POST",
-          // },
+          {
+            contentType: "api::city.city",
+            maxAge: 3600000,
+            hitpass: false,
+            keys: {
+              useQueryParams: false,
+              useHeaders: ["accept-encoding"],
+            },
+            maxAge: 18000,
+            method: "GET",
+          },
         ],
       },
     },

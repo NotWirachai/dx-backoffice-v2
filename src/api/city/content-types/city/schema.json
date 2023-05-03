@@ -42,6 +42,9 @@
       "relation": "manyToOne",
       "target": "api::state.state",
       "inversedBy": "cities"
+    },
+    "stateId": {
+      "type": "biginteger"
     }
   }
 }

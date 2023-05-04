@@ -16,12 +16,29 @@ module.exports = createCoreService("api::city.city", ({ strapi }) => {
     },
 
     create: async (ctx) => {
-      const city = await strapi.entityService.create("api::city.city", ctx);
+      const body = { data: { ...ctx.data, publishedAt: new Date() } };
+      const city = await strapi.entityService.create("api::city.city", body);
 
       // Set key-value pair in Redis
       redis.set(`city:${city.id}`, JSON.stringify(city));
 
       return city;
+    },
+
+    async update(params, data) {
+      const entry = await strapi.entityService.update(
+        "api::city.city",
+        params,
+        data
+      );
+
+      // Updete key-value pair in Redis
+      const city = await strapi.db
+        .query("api::city.city")
+        .findOne({ where: { id: params } });
+      redis.set(`city:${params}`, JSON.stringify(city));
+
+      return entry;
     },
   };
 });

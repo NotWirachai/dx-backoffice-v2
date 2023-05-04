@@ -22,7 +22,6 @@ module.exports = {
 
       async afterCreate(event) {
         const { result, params } = event;
-        console.log("result:>>", result);
         await strapi.entityService.create("api::city.city", {
           data: {
             X: Math.floor(Math.random() * 1201),

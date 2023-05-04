@@ -38,5 +38,17 @@ module.exports = createCoreService("api::city.city", ({ strapi }) => {
 
       return entry;
     },
+
+    async delete(params) {
+      const entry = await strapi.entityService.delete("api::city.city", params);
+
+      // ลบ key ออกจาก Redis database
+      redis.del(`city:${params}`, (err, response) => {
+        if (err) throw err;
+        console.log(response); // แสดงจำนวน key ที่ถูกลบ
+      });
+
+      return entry;
+    },
   };
 });

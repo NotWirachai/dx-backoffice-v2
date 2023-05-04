@@ -5,36 +5,14 @@ module.exports = ({ env }) => {
 
   const connections = {
     redis: {
-      // connector: "redis",
-      // settings: {
-      //   db: "0",
-      //   host: "messageproxy.redis.cache.windows.net",
-      //   port: 6379,
-      //   password: "aQlltP5EZ1TlFzOJjfPV2hdKtc0Ku7t36AzCaP4OMf0=",
-      // },
-      // debug: true,
-      connection: {
+      connector: "redis",
+      settings: {
+        db: "0",
         host: "messageproxy.redis.cache.windows.net",
         port: 6379,
-        database: 0,
         password: "aQlltP5EZ1TlFzOJjfPV2hdKtc0Ku7t36AzCaP4OMf0=",
-        ssl: env.bool("DATABASE_SSL", false) && {
-          key: env("DATABASE_SSL_KEY", undefined),
-          cert: env("DATABASE_SSL_CERT", undefined),
-          ca: env("DATABASE_SSL_CA", undefined),
-          capath: env("DATABASE_SSL_CAPATH", undefined),
-          cipher: env("DATABASE_SSL_CIPHER", undefined),
-          rejectUnauthorized: env.bool(
-            "DATABASE_SSL_REJECT_UNAUTHORIZED",
-            true
-          ),
-        },
-        schema: env("DATABASE_SCHEMA", "public"),
       },
-      pool: {
-        min: env.int("DATABASE_POOL_MIN", 2),
-        max: env.int("DATABASE_POOL_MAX", 10),
-      },
+      debug: true,
     },
     mysql: {
       connection: {

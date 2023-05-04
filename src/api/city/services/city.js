@@ -9,10 +9,8 @@ const { createCoreService } = require("@strapi/strapi").factories;
 module.exports = createCoreService("api::city.city", ({ strapi }) => {
   const redis = strapi.redis.connections.default.client;
   return {
-    deleteMany(opts, uid) {
-      const params = { ...opts };
-
-      return strapi.entityService.deleteMany(uid, params);
+    async deleteMany() {
+      return await strapi.entityService.deleteMany("api::city.city");
     },
 
     create: async (ctx) => {

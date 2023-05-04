@@ -16,6 +16,7 @@
     "@strapi/provider-upload-aws-s3": "^4.9.2",
     "@strapi/strapi": "4.9.2",
     "pg": "^8.8.0",
+    "strapi-connector-redis": "^0.0.8",
     "strapi-plugin-redis": "^1.0.1",
     "strapi-plugin-rest-cache": "^4.2.7",
     "strapi-provider-rest-cache-redis": "^4.2.7"

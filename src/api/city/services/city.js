@@ -10,7 +10,11 @@ module.exports = createCoreService("api::city.city", ({ strapi }) => {
   const redis = strapi.redis.connections.default.client;
   return {
     async deleteMany() {
-      return await strapi.entityService.deleteMany("api::city.city");
+      redis.flushdb((err, response) => {
+        if (err) throw err;
+        console.log(response); // แสดงจำนวน key ที่ถูกลบ
+      });
+      // return await strapi.entityService.deleteMany("api::city.city");
     },
 
     create: async (ctx) => {

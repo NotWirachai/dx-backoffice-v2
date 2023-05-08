@@ -7,10 +7,10 @@ module.exports = ({ env }) => {
     redis: {
       connector: "redis",
       settings: {
-        db: "0",
-        host: "messageproxy.redis.cache.windows.net",
-        port: 6379,
-        password: "aQlltP5EZ1TlFzOJjfPV2hdKtc0Ku7t36AzCaP4OMf0=",
+        db: env("REDIS_DB"),
+        host: env("REDIS_HOST"),
+        port: env.int("REDIS_PORT"),
+        password: env("REDIS_PASSWORD"),
       },
       debug: true,
     },

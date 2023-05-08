@@ -45,6 +45,11 @@
     },
     "stateId": {
       "type": "biginteger"
+    },
+    "playerId": {
+      "type": "string",
+      "required": false,
+      "unique": false
     }
   }
 }
